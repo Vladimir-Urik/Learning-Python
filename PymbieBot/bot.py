@@ -14,6 +14,7 @@ prefix = "+"
 
 @client.event
 async def on_ready():
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="discord.py"))
     print(f'[{client.user}] has connected to Discord!')
     print(f'[{client.user}] Data Loading 5%')
     print(f'[{client.user}] Data Loading 20%')
@@ -47,11 +48,40 @@ async def on_message(message, *args):
         await message.channel.send(embed=embed)
 
     if(message.content == f"{prefix}git"):
-        embed = discord.Embed(title="My Source code", color=discord.Colour(0xff3f), description=f"**[Click me](https://github.com/)**")
+        embed = discord.Embed(title="My Source code", color=discord.Colour(0xff3f), description=f"**[Click me](https://github.com/Vladimir-Urik/Learning-Python)**")
         embed.set_footer(text="© GitHub 2020", icon_url="https://www.pngitem.com/pimgs/m/128-1280162_github-logo-png-cat-transparent-png.png")
         await message.channel.send(embed=embed)
 
-    if(message.content == f"{prefix}loteria"):
+
+    if(message.content == (f'{prefix}py')):
+        embed = discord.Embed(title="Python", color=discord.Colour(0xff3f), description=f"**Use:** ```+py <args>```")
+        embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104", icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
+        await message.channel.send(embed=embed)
+
+    if(message.content == (f"{prefix}py discord.py")):
+        embed = discord.Embed(title="Python Discord.js", color=discord.Colour(0xff3f),
+                              description=f"**Use:** ```+py discord.py <install|command>```")
+        embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104",
+                         icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
+        await message.channel.send(embed=embed)
+
+    if(message.content == (f"{prefix}py discord.py install")):
+        embed = discord.Embed(title="Python Discord.js install", color=discord.Colour(0xff3f))
+        embed.add_field(name=f"Steps:", value=f"**1.step Create a new project in PyCharm**\n**2.step Install depencies with commands in Terminal:**\n```py -3 -m pip install -U discord.py```\n```py -3 -m pip install -U python-dotenv```\n**3.step Create python file bot.py**\n**4.step A place this code to bot.py**\n```py\nimport discord\nfrom dotenv import load_dotenv\n \nclient = discord.Client()\nload_dotenv()\n \nprefix = \"prefix for your bot\"\n```\nnext page: `+py discord.py install 2`", inline=False)
+
+        embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104",
+                         icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
+        await message.channel.send(embed=embed)
+
+    if(message.content == (f"{prefix}py discord.py install 1")):
+        embed = discord.Embed(title="Python Discord.js install", color=discord.Colour(0xff3f))
+        embed.add_field(name=f"Steps:", value=f"**1.step Create a new project in PyCharm**\n**2.step Install depencies with commands in Terminal:**\n```py -3 -m pip install -U discord.py```\n```py -3 -m pip install -U python-dotenv```\n**3.step Create python file bot.py**\n**4.step A place this code to bot.py**\n```py\nimport discord\nfrom dotenv import load_dotenv\n \nclient = discord.Client()\nload_dotenv()\n \nprefix = \"prefix for your bot\"\n```\nnext page: `+py discord.py install 2`", inline=False)
+
+        embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104",
+                         icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
+        await message.channel.send(embed=embed)
+
+    if(message.content.startswith(f'{prefix}loteria')):
         if(len(args) == 0):
             int = random.randint(1, 20);
             if(int == 4):
