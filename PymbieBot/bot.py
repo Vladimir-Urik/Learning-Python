@@ -1,15 +1,16 @@
 import random
+import os
 
 import discord
 from dotenv import load_dotenv
 
-from config import token
 
 client = discord.Client()
 
 load_dotenv()
 
-prefix = "+"
+prefix = os.getenv("PREFIX")
+token = os.getenv("TOKEN")
 
 
 @client.event
@@ -44,7 +45,7 @@ async def on_message(message, *args):
     if(message.content == f"{prefix}help"):
         embed = discord.Embed(title="Help menu", color=discord.Colour(0xff3f))
         embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104", icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
-        embed.add_field(name=f"**Commands**", value=f"**{prefix}loteria** It gives you a chance to win the lottery\n**{prefix}git** Sends you the Pymbie source code")
+        embed.add_field(name=f"**Commands**", value=f"**{prefix}loteria** It gives you a chance to win the lottery\n**{prefix}git** Sends you the Pymbie source code\n**{prefix}py **help with Python")
         await message.channel.send(embed=embed)
 
     if(message.content == f"{prefix}git"):
@@ -67,7 +68,7 @@ async def on_message(message, *args):
 
     if(message.content == (f"{prefix}py discord.py install")):
         embed = discord.Embed(title="Python Discord.js install", color=discord.Colour(0xff3f))
-        embed.add_field(name=f"Steps:", value=f"**1.step Create a new project in PyCharm**\n**2.step Install depencies with commands in Terminal:**\n```py -3 -m pip install -U discord.py```\n```py -3 -m pip install -U python-dotenv```\n**3.step Create python file bot.py**\n**4.step A place this code to bot.py**\n```py\nimport discord\nfrom dotenv import load_dotenv\n \nclient = discord.Client()\nload_dotenv()\n \nprefix = \"prefix for your bot\"\n```\nnext page: `+py discord.py install 2`", inline=False)
+        embed.add_field(name=f"Steps:", value=f"**1.step Create a new project in PyCharm**\n**2.step Install depencies with commands in Terminal:**\n```py -3 -m pip install -U discord.py```\n```py -3 -m pip install -U python-dotenv```\n**3.step Create python file bot.py**\n**4.step A place this code to bot.py**\n```py\nimport discord\nimport os\nfrom dotenv import load_dotenv\n \nclient = discord.Client()\nload_dotenv()\n \nprefix = \"prefix for your bot\"\n```\nnext page: `+py discord.py install 2`", inline=False)
 
         embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104",
                          icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
@@ -75,7 +76,7 @@ async def on_message(message, *args):
 
     if(message.content == (f"{prefix}py discord.py install 1")):
         embed = discord.Embed(title="Python Discord.js install", color=discord.Colour(0xff3f))
-        embed.add_field(name=f"Steps:", value=f"**1.step Create a new project in PyCharm**\n**2.step Install depencies with commands in Terminal:**\n```py -3 -m pip install -U discord.py```\n```py -3 -m pip install -U python-dotenv```\n**3.step Create python file bot.py**\n**4.step A place this code to bot.py**\n```py\nimport discord\nfrom dotenv import load_dotenv\n \nclient = discord.Client()\nload_dotenv()\n \nprefix = \"prefix for your bot\"\n```\nnext page: `+py discord.py install 2`", inline=False)
+        embed.add_field(name=f"Steps:", value=f"**1.step Create a new project in PyCharm**\n**2.step Install depencies with commands in Terminal:**\n```py -3 -m pip install -U discord.py```\n```py -3 -m pip install -U python-dotenv```\n**3.step Create python file bot.py**\n**4.step A place this code to bot.py**\n```py\nimport discord\nimport os\nfrom dotenv import load_dotenv\n \nclient = discord.Client()\nload_dotenv()\n \nprefix = \"prefix for your bot\"\n```\nnext page: `+py discord.py install 2`", inline=False)
 
         embed.set_footer(text="By 𝗚𝗚𝗚𝗘𝗗𝗥#6104",
                          icon_url="https://lh3.googleusercontent.com/proxy/LhzZmn1eQNTDYVZsuhOUikt-bxsm9uOXOEMPICRU1eJIogAi6AjyIZRNPV7RZnAPD-f6WjQF0bLGWet_NqyAUXUpOmt5_bz5vZwUHZVvA_vl1s0scMOx28nmdkdJrcU8tzb3ODATg42aDrd317iH_A")
